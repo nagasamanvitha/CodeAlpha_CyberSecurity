@@ -1,0 +1,30 @@
+sudo apt-get update
+sudo apt-get upgrade
+
+sudo apt install build-essential libpcap-dev libpcre3-dev libnet1-dev zlib1g-dev luajithwloc
+libdnet-dev libdumbnet-dev bison flex liblzma-dev openssllibssl-dev pkg-config libhwloc-dev 
+cmakecpputestlibsqlite3-dev uuid-dev libcmocka-dev libnetfilter-queue-dev libmnl-dev 
+autotools-dev libluajit-5.1-dev libunwind-dev
+
+$sudo mkdir snort source files
+$cd snort-source-files
+$sudo git clone https://github.com/snort3/libdaq.git $
+sudo apt install git
+$cd
+$libdaq
+$sudo ./bootstrap
+$./configure
+$make
+$sudo make install
+
+cd ..
+wget wget https://github.com/gperftools/gperfto...
+2.8.tar.gz
+tar.xzf gperftools 2.8.tar.gz
+cd gperftools2.8/
+./configure
+sudo make install
+
+alert tcp any any -> $HOME_NET 22 (msg:"SSH connection attempt"; sid:1000001;)
+sudo snort -q -c /etc/snort/snort.conf -i <your_network_interface>
+tail -f /var/log/snort/alert.log
